@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-image: linear-gradient(
       to left,
-      rgba(0 0 0 /0.8),
+      rgba(0 0 0 /0.7),
       rgba(10 0 0 /0.8)
     ),
     url('../public/background-img.jpg');
@@ -34,4 +35,9 @@ a {
       minmax(min-content, 12.5rem)
     );
   justify-content: center;
+}
+
+h1 {
+  font-size: 5rem;
+  color: white;
 }
