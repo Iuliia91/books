@@ -1,12 +1,12 @@
 import '../styles/globals.scss'
-import Header from './Header'
+import Header from '../components/Header'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <div className="flex flex-column">
       <Header />
       <Component {...pageProps} />
-    </>
+    </div>
   )
 }
 

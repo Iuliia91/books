@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 html,
 body {
@@ -28,6 +31,15 @@ a {
   font-size: 10px;
 }
 
+input,
+fieldset {
+  border: none;
+  background-color: transparent;
+}
+
+label {
+  color: white;
+}
 #__next {
   display: grid;
   grid-template-columns: [container-start] repeat(
