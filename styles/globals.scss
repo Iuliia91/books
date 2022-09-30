@@ -40,6 +40,7 @@ fieldset {
 label {
   color: white;
 }
+
 #__next {
   display: grid;
   grid-template-columns: [container-start] repeat(
@@ -47,9 +48,21 @@ label {
       minmax(min-content, 12.5rem)
     );
   justify-content: center;
+  text-align: center;
+  margin: auto;
+
+  & > div {
+    grid-column: 1/-1;
+  }
 }
 
 h1 {
   font-size: 5rem;
   color: white;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
