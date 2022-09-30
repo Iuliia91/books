@@ -1,10 +1,12 @@
+import styles from '../styles/Header.module.scss'
+
 const Header = () => {
   return (
-    <form className="flex">
+    <form className={styles.header}>
       <fieldset>
         <input type="search" placeholder="Seacrch..." />
       </fieldset>
-      <div className="flex">
+      <div>
         <fieldset>
           <input type="checkbox" name="English" />
           <label>Eng</label>

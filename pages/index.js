@@ -1,5 +1,6 @@
 import BookCard from '../components/BookCard'
 import styles from '../styles/Home.module.scss'
+
 export const getStaticProps = async () => {
   const response = await fetch('https://gutendex.com/books')
   const data = await response.json()

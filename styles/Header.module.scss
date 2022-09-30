@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  padding: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & input[type='search'] {
+    width: 50rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+  }
+  & > div {
+    display: flex;
+    gap: 3rem;
+    & > fieldset {
+      display: flex;
+      gap: 1rem;
+
+      label {
+        font-size: rem;
+      }
+    }
+  }
+}
