@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.scss'
 export const getStaticProps = async () => {
   const response = await fetch('https://gutendex.com/books')
   const data = await response.json()
+
   if (!data) {
     return {
       notFound: true,
@@ -15,10 +16,10 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ booksList }) => {
-  const { results } = booksList
+  const { results, url } = booksList
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={() => handleAdd(url)}>
       {booksList &&
         results.map((item) => {
           return <BookCard item={item} />

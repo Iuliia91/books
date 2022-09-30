@@ -1,6 +1,7 @@
 import styles from '../styles/BookCard.module.scss'
 import Link from 'next/link'
-const authorName = (author) => {
+
+export const authorName = (author) => {
   return author.map((item) => {
     return <p>{item.name}</p>
   })
@@ -11,7 +12,10 @@ const BookCard = (props) => {
 
   return (
     <Link href={`/${id}`}>
-      <div className={styles.card}>
+      <div
+        className={styles.card}
+        onClick={() => console.log(`we are cklick on ${id}`)}
+      >
         <figure>
           <img src={formats['image/jpeg']} alt="book" />
         </figure>

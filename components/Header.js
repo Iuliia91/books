@@ -16,6 +16,7 @@ const Header = () => {
           <label>Franch</label>
         </fieldset>
       </div>
+      <input type="submit" name="Search" />
     </form>
   )
 }
