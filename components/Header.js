@@ -1,17 +1,17 @@
 const Header = () => {
   return (
-    <form className="flex h-full flex-row justify-center items-center background-red">
+    <form className="flex">
       <fieldset>
         <input type="search" placeholder="Seacrch..." />
       </fieldset>
       <div className="flex">
         <fieldset>
           <input type="checkbox" name="English" />
-          <label for="English">Eng</label>
+          <label>Eng</label>
         </fieldset>
         <fieldset>
           <input type="checkbox" name="Franch" />
-          <label for="Franch">Franch</label>
+          <label>Franch</label>
         </fieldset>
       </div>
     </form>
