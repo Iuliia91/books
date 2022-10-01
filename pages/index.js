@@ -28,6 +28,7 @@ const Home = ({ booksList }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [list, setList] = useState(results)
   const [fetching, setFetching] = useState(false)
+  console.log(results)
 
   useEffect(() => {
     dinamicPagination(currentPage).then((response) => {
@@ -55,7 +56,7 @@ const Home = ({ booksList }) => {
   }
 
   return (
-    <div className={styles.container} onClick={() => handleAdd(url)}>
+    <div className={styles.container}>
       {booksList &&
         list.map((item) => {
           return <BookCard item={item} />

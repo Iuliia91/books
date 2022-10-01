@@ -1,20 +1,22 @@
 import styles from '../styles/BookCard.module.scss'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export const authorName = (author) => {
   return author.map((item) => {
-    return <p>{item.name}</p>
+    return <span>{item.name}</span>
   })
 }
 
 const BookCard = (props) => {
   const { id, title, formats, authors, download_count } = props.item
+  const [press, setPress] = useState(false)
 
   return (
     <Link href={`/${id}`}>
       <div
-        className={styles.card}
-        onClick={() => console.log(`we are cklick on ${id}`)}
+        className={press ? `${styles.card} active` : styles.card}
+        onClick={() => setPress(true)}
       >
         <figure>
           <img src={formats['image/jpeg']} alt="book" />
