@@ -1,67 +1,63 @@
-import { useEffect, useState } from 'react'
+import { useState, useRef, useCallback } from 'react'
+
 import BookCard from '../components/BookCard'
 import styles from '../styles/Home.module.scss'
+import BookLiast from '../components/BookLiast'
 
-export const getStaticProps = async () => {
-  const response = await fetch('https://gutendex.com/books')
+export const getServerSideProps = async () => {
+  const response = await fetch(`https://gutendex.com/books`)
   const data = await response.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
+  let booksList = data
   return {
-    props: { booksList: data },
+    props: { booksList },
   }
-}
-
-const dinamicPagination = async (number) => {
-  const response = await fetch(`https://gutendex.com/books/?page=${number}`)
-  const data = await response.json()
-
-  return data
 }
 
 const Home = ({ booksList }) => {
   const { results, next } = booksList
-  const [currentPage, setCurrentPage] = useState(1)
   const [list, setList] = useState(results)
-  const [fetching, setFetching] = useState(false)
-  console.log(results)
+  const [visible, setVisible] = useState(false)
+  const [nexPage, setNexPage] = useState(next)
 
-  useEffect(() => {
-    dinamicPagination(currentPage).then((response) => {
-      setCurrentPage((prev) => prev + 1)
-      setList([...list, ...response.results])
-    })
-  }, [fetching])
+  const observer = useRef()
+  const { listdata, currentPage, hasMore, loading } = BookLiast(
+    nexPage,
+    visible
+  )
 
-  useEffect(() => {
-    document.addEventListener('scroll', scrollHandler)
+  const lastBook = useCallback(
+    (node) => {
+      if (observer.current) observer.current.disconnect()
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          setNexPage(currentPage)
+          setVisible(true)
+          setList((prev) => [...prev, ...listdata])
+        }
+      })
 
-    return function () {
-      document.removeEventListener('scroll', scrollHandler)
-    }
-  }, [])
-
-  const scrollHandler = (e) => {
-    if (
-      e.target.documentElement.scrollHeight -
-        (e.target.documentElement.scrollTop + window.innerHeight) ===
-      0
-    ) {
-      setFetching(true)
-    }
-  }
+      if (node) observer.current.observe(node)
+    },
+    [hasMore, loading]
+  )
 
   return (
-    <div className={styles.container}>
-      {booksList &&
-        list.map((item) => {
-          return <BookCard item={item} />
-        })}
-    </div>
+    <>
+      <div className={styles.container} id="scrollableDiv">
+        {booksList &&
+          list.map((item, index) => {
+            if (list.length === index + 1) {
+              return (
+                <div ref={lastBook}>
+                  <BookCard item={item} key={item.id} />
+                </div>
+              )
+            } else {
+              return <BookCard item={item} />
+            }
+          })}
+      </div>
+    </>
   )
 }
 
