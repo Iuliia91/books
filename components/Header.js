@@ -17,12 +17,14 @@ const Header = () => {
   const handleCheckedId = (id) => {
     setCheckedId(id)
     setAppState({ language: id })
+    setSearchValue('')
   }
 
   const handleNewSearchValue = (event) => {
     setSearchValue(event.target.value)
   }
-  const handleSearchBook = () => {
+  const handleSearchBook = (e) => {
+    e.preventDefault()
     const value = searchValue.replace(/ /g, '%20').toLowerCase()
 
     setAppState({ bookName: value })
@@ -40,7 +42,7 @@ const Header = () => {
         <input
           type="submit"
           placeholder="Search by book name"
-          onClick={handleSearchBook}
+          onClick={(e) => handleSearchBook(e)}
         />
       </fieldset>
       <div>

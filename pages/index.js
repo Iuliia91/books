@@ -59,6 +59,8 @@ const Home = ({ booksList }) => {
       )
       const data = await response.json()
       setList(data.results)
+      setNexPage('')
+      currentPage = ''
 
       console.log(data)
     }

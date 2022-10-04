@@ -5,9 +5,10 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 4rem 2rem;
 
   & input[type='search'] {
-    width: 45rem;
+    width: 40rem;
     background-color: white;
     padding: 2rem;
     border-top-left-radius: 0.5rem;
@@ -15,7 +16,7 @@
     font-size: 1.8rem;
   }
   & input[type='submit'] {
-    width: 10rem;
+    width: 14rem;
     padding: 2rem;
     background-color: rgb(80, 27, 205);
     border-top-right-radius: 0.5rem;
@@ -34,6 +35,37 @@
       label {
         font-size: rem;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header {
+    & > fieldset,
+    & > div {
+      text-align: center;
+
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    padding: 5rem 2rem;
+    & > fieldset,
+    & > div {
+      text-align: center;
+
+      width: 100%;
+      justify-content: center;
+    }
+    & input[type='search'] {
+      width: 60%;
+    }
+    & input[type='submit'] {
+      width: 40%;
     }
   }
 }
