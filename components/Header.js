@@ -10,18 +10,38 @@ const CHECKBOX_DATA = [
 
 const Header = () => {
   const [checkedId, setCheckedId] = useState('')
+  const [searchValue, setSearchValue] = useState('')
 
   const [appState, setAppState] = useAppContext()
 
   const handleCheckedId = (id) => {
     setCheckedId(id)
-    setAppState(id)
+    setAppState({ language: id })
+  }
+
+  const handleNewSearchValue = (event) => {
+    setSearchValue(event.target.value)
+  }
+  const handleSearchBook = () => {
+    const value = searchValue.replace(/ /g, '%20').toLowerCase()
+
+    setAppState({ bookName: value })
   }
 
   return (
     <form className={styles.header}>
       <fieldset>
-        <input type="search" placeholder="Seacrch..." />
+        <input
+          type="search"
+          placeholder="Seacrch..."
+          value={searchValue}
+          onChange={handleNewSearchValue}
+        />
+        <input
+          type="submit"
+          placeholder="Search by book name"
+          onClick={handleSearchBook}
+        />
       </fieldset>
       <div>
         {CHECKBOX_DATA.map((item) => {

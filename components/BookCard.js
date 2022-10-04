@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export const authorName = (author) => {
-  return author.map((item) => {
-    return <span>{item.name}</span>
+  return author.map((item, index) => {
+    return <span key={index}>{item.name}</span>
   })
 }
 

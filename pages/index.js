@@ -45,13 +45,23 @@ const Home = ({ booksList }) => {
   )
 
   const fatchdata = async () => {
-    const response = await fetch(
-      `https://gutendex.com/books?languages=${appState}`
-    )
-    const data = await response.json()
+    if (appState.language) {
+      const response = await fetch(
+        `https://gutendex.com/books?languages=${appState.language}`
+      )
+      const data = await response.json()
 
-    setList(data.results)
-    setNexPage(data.next)
+      setList(data.results)
+      setNexPage(data.next)
+    } else if (appState.bookName) {
+      const response = await fetch(
+        `https://gutendex.com/books?search=${appState.bookName}`
+      )
+      const data = await response.json()
+      setList(data.results)
+
+      console.log(data)
+    }
   }
 
   useEffect(() => {
@@ -67,12 +77,12 @@ const Home = ({ booksList }) => {
           list.map((item, index) => {
             if (list.length === index + 1) {
               return (
-                <div ref={lastBook}>
-                  <BookCard item={item} key={item.id} />
+                <div ref={lastBook} key={item.id}>
+                  <BookCard item={item} />
                 </div>
               )
             } else {
-              return <BookCard item={item} />
+              return <BookCard item={item} key={item.id} />
             }
           })}
       </div>

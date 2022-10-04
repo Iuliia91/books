@@ -7,11 +7,22 @@
   flex-wrap: wrap;
 
   & input[type='search'] {
-    width: 50rem;
+    width: 45rem;
     background-color: white;
     padding: 2rem;
-    border-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
     font-size: 1.8rem;
+  }
+  & input[type='submit'] {
+    width: 10rem;
+    padding: 2rem;
+    background-color: rgb(80, 27, 205);
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
   }
   & > div {
     display: flex;
