@@ -1,18 +1,14 @@
 import '../styles/globals.scss'
 import Header from '../components/Header'
-
-import { getStorage } from 'next-persist'
-import { Provider } from 'react-redux'
-
-/*const npConfig = {
-  method: 'localStorage',
-}*/
+import AppWraper from '../context/AppContext'
 
 function MyApp({ Component, pageProps }) {
   return (
     <div>
-      <Header />
-      <Component {...pageProps} />
+      <AppWraper>
+        <Header />
+        <Component {...pageProps} />
+      </AppWraper>
     </div>
   )
 }

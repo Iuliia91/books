@@ -1,8 +1,10 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 
 import BookCard from '../components/BookCard'
 import styles from '../styles/Home.module.scss'
 import BookLiast from '../components/BookLiast'
+
+import { useAppContext } from '../context/AppContext'
 
 export const getServerSideProps = async () => {
   const response = await fetch(`https://gutendex.com/books`)
@@ -19,6 +21,7 @@ const Home = ({ booksList }) => {
   const [visible, setVisible] = useState(false)
   const [nexPage, setNexPage] = useState(next)
 
+  const [appState, setAppState] = useAppContext()
   const observer = useRef()
   const { listdata, currentPage, hasMore, loading } = BookLiast(
     nexPage,
@@ -40,6 +43,22 @@ const Home = ({ booksList }) => {
     },
     [hasMore, loading]
   )
+
+  const fatchdata = async () => {
+    const response = await fetch(
+      `https://gutendex.com/books?languages=${appState}`
+    )
+    const data = await response.json()
+
+    setList(data.results)
+    setNexPage(data.next)
+  }
+
+  useEffect(() => {
+    if (appState !== undefined) {
+      fatchdata()
+    }
+  }, [appState])
 
   return (
     <>

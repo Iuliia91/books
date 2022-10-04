@@ -6,7 +6,6 @@ const BookLiast = (nexPage, visible) => {
   const [listdata, setList] = useState([])
 
   const [hasMore, setHasMore] = useState(false)
-  console.log(nexPage)
 
   const fetchMoreData = async () => {
     setLoading(true)
