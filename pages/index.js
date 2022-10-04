@@ -7,11 +7,16 @@ import BookLiast from '../components/BookLiast'
 import { useAppContext } from '../context/AppContext'
 
 export const getServerSideProps = async () => {
-  const response = await fetch(`https://gutendex.com/books`)
-  const data = await response.json()
-  let booksList = data
-  return {
-    props: { booksList },
+  try {
+    const response = await fetch(`https://gutendex.com/books`)
+    const data = await response.json()
+    let booksList = data
+    return {
+      props: { booksList },
+    }
+  } catch {
+    let booksList = null
+    return { props: { booksList } }
   }
 }
 
