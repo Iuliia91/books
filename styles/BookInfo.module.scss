@@ -67,7 +67,8 @@
 
 @media screen and (max-width: 900px) {
   .book_info {
-    background-color: red;
+    padding: 1rem;
+    gap: 3rem;
     & > figure {
       flex-basis: 80%;
       height: 80%;
@@ -75,11 +76,6 @@
     }
     & > div {
       flex-basis: 90%;
-
-      li {
-        align-self: flex-end;
-        justify-self: flex-start;
-      }
     }
   }
 }
