@@ -64,3 +64,16 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .book_info {
+    & > figure {
+      flex-basis: 80%;
+      height: 80%;
+      width: 100%;
+    }
+    & > div {
+      flex-basis: 90%;
+    }
+  }
+}
