@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build  postcss style/global.scss",
+    "build": "next build  style/global.scss",
     "start": "next start",
     "lint": "next lint"
   },
