@@ -12,7 +12,7 @@ const Checkbox = ({ item, onCheck, checkedId }) => {
         checked={isCurrentChecked}
         onChange={() => onCheck(item.id)}
       />
-      <label>{name}</label>
+      <label htmlFor={name}>{name}</label>
     </fieldset>
   )
 }

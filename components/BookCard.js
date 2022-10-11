@@ -24,7 +24,12 @@ const BookCard = (props) => {
         className={press ? `${styles.card} active` : styles.card}
         onClick={() => setPress(true)}
       >
-        <Image src={formats['image/jpeg']} alt="book" layout="fill" />
+        <Image
+          src={formats['image/jpeg']}
+          alt="book"
+          height="300%"
+          width="200%"
+        />
 
         <h2>{title}</h2>
         <h5>
