@@ -9,6 +9,11 @@ export const authorName = (author) => {
   })
 }
 
+{
+  /*<figure>
+          <img src={formats['image/jpeg']} alt="book" loading="lazy" />
+        </figure>*/
+}
 const BookCard = (props) => {
   const { id, title, formats, authors, download_count } = props.item
   const [press, setPress] = useState(false)
@@ -20,9 +25,7 @@ const BookCard = (props) => {
         onClick={() => setPress(true)}
       >
         <Image src={formats['image/jpeg']} alt="book" />
-        {/*<figure>
-          <img src={formats['image/jpeg']} alt="book" loading="lazy" />
-        </figure>*/}
+
         <h2>{title}</h2>
         <h5>
           authors: <span>{authorName(authors)}</span>
