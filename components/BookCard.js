@@ -1,5 +1,6 @@
 import styles from '../styles/BookCard.module.scss'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export const authorName = (author) => {
@@ -18,9 +19,10 @@ const BookCard = (props) => {
         className={press ? `${styles.card} active` : styles.card}
         onClick={() => setPress(true)}
       >
-        <figure>
-          <img src={formats['image/jpeg']} alt="book" />
-        </figure>
+        <Image src={formats['image/jpeg']} alt="book" />
+        {/*<figure>
+          <img src={formats['image/jpeg']} alt="book" loading="lazy" />
+        </figure>*/}
         <h2>{title}</h2>
         <h5>
           authors: <span>{authorName(authors)}</span>
