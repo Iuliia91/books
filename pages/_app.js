@@ -5,6 +5,9 @@ import AppWraper from '../context/AppContext'
 function MyApp({ Component, pageProps }) {
   return (
     <div>
+      <Head>
+        <meta name="description" content="search and read books" />
+      </Head>
       <AppWraper>
         <Header />
         <Component {...pageProps} />
