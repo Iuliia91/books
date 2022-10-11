@@ -32,7 +32,7 @@ const BookCard = (props) => {
         onClick={() => setPress(true)}
       >
         <figure>
-          <img src={formats['image/jpeg']} alt="book" loading="lazy" />
+          <img src={formats['image/jpeg']} alt="book" />
         </figure>
 
         <h2>{title}</h2>
