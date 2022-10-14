@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  /* images: {
+  images: {
     domains: ['www.gutenberg.org'],
-  },*/
+  },
 }
 
 module.exports = nextConfig
