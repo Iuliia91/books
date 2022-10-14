@@ -2,10 +2,10 @@ import '../styles/globals.scss'
 import Head from 'next/head'
 import Header from '../components/Header'
 import AppWraper from '../context/AppContext'
-
+import { Html } from 'next/document'
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <Html lang="en">
       <Head>
         <title>Book search</title>
         <meta
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <Header />
         <Component {...pageProps} />
       </AppWraper>
-    </div>
+    </Html>
   )
 }
 
