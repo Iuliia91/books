@@ -6,7 +6,11 @@ import BookLiast from '../components/BookLiast'
 
 import { useAppContext } from '../context/AppContext'
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req, res }) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
   try {
     const response = await fetch(`https://gutendex.com/books`)
     const data = await response.json()
