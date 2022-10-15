@@ -5,6 +5,7 @@ const Checkbox = ({ item, onCheck, checkedId }) => {
 
   return (
     <fieldset>
+      <label htmlFor={name}>{name}</label>
       <input
         type="checkbox"
         name={value}
@@ -12,7 +13,6 @@ const Checkbox = ({ item, onCheck, checkedId }) => {
         checked={isCurrentChecked}
         onChange={() => onCheck(item.id)}
       />
-      <label htmlFor={name}>{name}</label>
     </fieldset>
   )
 }

@@ -26,9 +26,9 @@ const BookCard = (props) => {
           width="200%"
         />
         <h2>{title}</h2>
-        <h5>
+        <h3>
           authors: <span>{authorName(authors)}</span>
-        </h5>
+        </h3>
 
         <p>
           download: <span>{download_count}</span>
