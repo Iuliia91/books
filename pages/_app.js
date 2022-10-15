@@ -5,7 +5,8 @@ import AppWraper from '../context/AppContext'
 import { Html } from 'next/document'
 function MyApp({ Component, pageProps }) {
   return (
-    <Html lang="en">
+    <div>
+      {' '}
       <Head>
         <title>Book search</title>
         <meta
@@ -17,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         <Header />
         <Component {...pageProps} />
       </AppWraper>
-    </Html>
+    </div>
   )
 }
 
