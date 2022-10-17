@@ -12,3 +12,4 @@
 - Create page books/:id, which is available by clicking on the card with the book;
 
 ![First-Screen](public/first-screen.JPG)
+![Second-Screen](public/second-screen.JPG)
