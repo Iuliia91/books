@@ -8,4 +8,7 @@
 
 - When scrolling, load additional books;
 - The page has the ability to search by string;
-- The ability to search bools by languages;
+- The ability to search books by languages;
+- Create page books/:id, which is available by clicking on the card with the book;
+
+![First-Screen](public/first-screen.JPG)
